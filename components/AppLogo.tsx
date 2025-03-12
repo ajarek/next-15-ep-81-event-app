@@ -1,18 +1,23 @@
-import { LayoutDashboard } from "lucide-react";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
-const AppLogo=()=> {
+const AppLogo = () => {
   return (
-    <div className="flex items-center justify-between  ">
-      <Link href={'/'} className="flex gap-2 items-center">
-        <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center">
-          <LayoutDashboard className="text-primary-foreground" />
+    <div className='flex items-center justify-between  '>
+      <Link
+        href={'/'}
+        className='flex gap-2 items-center'
+      >
+        <div className='relative   flex items-center justify-center'>
+          <Image
+            src={'/header/logo.svg'}
+            alt='logo'
+            width={60}
+            height={60}
+          />
         </div>
-        <h1 className={"text-[20px] flex gap-1 max-md:hidden"}>
-          <span className="font-bold">test</span>
-        </h1>
       </Link>
     </div>
-  );
+  )
 }
 export default AppLogo

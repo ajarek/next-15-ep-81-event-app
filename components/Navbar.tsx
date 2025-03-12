@@ -14,7 +14,7 @@ import { House, Users } from 'lucide-react'
 const Navbar = async () => {
   const session = await auth()
   return (
-    <div className='h-16 flex  items-center justify-between flex-wrap px-8'>
+    <div className='fixed z-10 bg-transparent w-full h-16 flex  items-center justify-between flex-wrap px-8'>
       <AppLogo />
       <div className='flex gap-4 items-center flex-wrap justify-center  '>
         <Link
@@ -26,13 +26,14 @@ const Navbar = async () => {
               <TooltipTrigger>
                 {' '}
                 <House
+                  color='#ea580c'
                   size={32}
                   strokeWidth={1}
-                  aria-label='Strona Główna'
+                  aria-label='Home'
                 />
               </TooltipTrigger>
               <TooltipContent>
-                <p>Strona Główna</p>
+                <p>Home</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -46,13 +47,14 @@ const Navbar = async () => {
               <TooltipTrigger>
                 {' '}
                 <Users
+                 color='#ea580c'
                   size={32}
                   strokeWidth={1}
-                  aria-label='O Nas'
+                  aria-label='About us  '
                 />
               </TooltipTrigger>
               <TooltipContent>
-                <p>O Nas</p>
+                <p>About us</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

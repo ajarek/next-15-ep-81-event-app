@@ -28,13 +28,14 @@ const Logout = async ({ session }: { session: Session | null }) => {
               <TooltipTrigger>
                 {' '}
                 <KeyRound
+                  color='#ea580c'
                   size={32}
                   strokeWidth={1}
-                  aria-label='Logowanie'
+                  aria-label='Login'
                 />
               </TooltipTrigger>
               <TooltipContent>
-                <p>Logowanie</p>
+                <p>Login</p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

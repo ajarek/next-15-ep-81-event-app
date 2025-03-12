@@ -39,7 +39,7 @@ export function SignIn() {
         </Link>
       </div>
       <Label className='w-full'>
-        Imię
+        Name
         <Input
           name='username'
           type='text'
@@ -48,7 +48,7 @@ export function SignIn() {
         />
       </Label>
       <Label className='w-full'>
-        Hasło
+        Password
         <Input
           name='password'
           type='password'
@@ -59,16 +59,16 @@ export function SignIn() {
       <Button
         type='submit'
         className='w-full bg-[#0E78F9] text-white hover:bg-[#0E78F9]/90'
-        aria-label='Zaloguj'
+        aria-label='Log in'
       >
-        Zaloguj
+        Log in
       </Button>
       <Link
         href='/register'
         className=''
-        aria-label='Nie masz konta? Zarejestruj się'
+        aria-label='Don`&apos;`t have an account? Sign up'
       >
-        Nie masz konta? <b className='text-[#0E78F9]'>Zarejestruj się</b>
+         Don`&apos;`t have an account? <b className='text-[#0E78F9]'>Sign up</b>
       </Link>
     </form>
   )

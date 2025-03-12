@@ -25,12 +25,12 @@ const roboto = Roboto({
   variable: '--font-roboto',
 })
 
-const openSans = Open_Sans({
+export const openSans = Open_Sans({
   subsets: ['latin'],
   variable: '--font-open-sans',
 })
 
-const montserrat = Montserrat({
+export const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
 })
@@ -52,8 +52,8 @@ const playfairDisplay = Playfair({
 })
 
 export const metadata: Metadata = {
-  title: 'test App', // Placeholder for title
-  description: 'test', // Placeholder for description
+  title: 'Event App', // Placeholder for title
+  description: 'Event', // Placeholder for description
 }
 
 export default function RootLayout({
@@ -63,7 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang='pl'
+      lang='en'
       suppressHydrationWarning
     >
       <body
@@ -79,7 +79,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className='max-w-7xl w-full mx-auto'>
+          <div className={`max-w-7xl w-full mx-auto ${lato.className}`}>
             <Navbar />
             {children}
           </div>

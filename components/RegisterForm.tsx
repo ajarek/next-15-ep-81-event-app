@@ -39,11 +39,11 @@ const RegisterForm = () => {
   }
 
   return (
-    <div className='p-4  flex flex-col items-center rounded-lg border-2 shadow-xl gap-4 min-w-[300px]'>
+    <div className='px-4  flex flex-col items-center rounded-lg border-2 shadow-xl gap-4 min-w-[300px]'>
       <div className='flex justify-center p-2'>
         <Link href='/' aria-label='Logo'>
           <Image
-            src='/images/logo.png'
+            src={'/images/user.png'}
             alt='logo'
             width={60}
             height={60}
@@ -57,7 +57,7 @@ const RegisterForm = () => {
       >
         <Input
           type='text'
-          placeholder='Imię'
+          placeholder='Name'
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           className=''
@@ -71,14 +71,14 @@ const RegisterForm = () => {
         />
         <Input
           type='password'
-          placeholder='Hasło'
+          placeholder='Password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className=''
         />
         <Input
           type='text'
-          placeholder='Twoje foto (opcjonalnie)'
+          placeholder='Your photo (optional)'
           value={img}
           onChange={(e) => setImage(e.target.value)}
           className=''
@@ -91,16 +91,16 @@ const RegisterForm = () => {
         <Button
           className='w-full bg-[#0E78F9] text-white hover:bg-[#0E78F9]/90'
           type='submit'
-          aria-label='Zarejestruj się'
+          aria-label='Sign up'
         >
-          Zarejestruj się
+          Register
         </Button>
         <Link
           href='/login'
-          className='text-black'
-          aria-label='Masz już konto? Zaloguj się'
+          className=''
+          aria-label='Already have an account? Log in'
         >
-          Masz już konto? <b className='text-[#0E78F9]'>Zaloguj się</b>
+          Already have an account?  <b className='text-[#0E78F9]'>Log in</b>
         </Link>
       </form>
     </div>
