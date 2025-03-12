@@ -7,6 +7,7 @@ import {
   Poppins,
   Raleway,
   Roboto,
+  Caveat
 } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -46,6 +47,13 @@ const raleway = Raleway({
   variable: '--font-raleway',
 })
 
+export const caveat = Caveat({
+  weight: ['400','500','600', '700'],
+  subsets: ['latin'],
+  variable: '--font-caveat',
+})
+
+
 const playfairDisplay = Playfair({
   subsets: ['latin'],
   variable: '--font-playfair',
@@ -67,7 +75,8 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${poppins.variable}
+        className={`${poppins.variable} 
+         ${caveat.variable}
          ${roboto.variable} ${openSans.variable} 
          ${montserrat.variable} ${raleway.variable} 
          ${lato.variable} ${playfairDisplay.variable} 

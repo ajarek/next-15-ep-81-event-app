@@ -1279,21 +1279,8 @@
               "icon": "/assets/organizers/social/pinterest.svg",
               "path": ""
             }
-          ],
-          "social": [
-            {
-              "icon": "/assets/organizers/social/x.svg",
-              "path": ""
-            },
-            {
-              "icon": "/assets/organizers/social/instagram.svg",
-              "path": ""
-            },
-            {
-              "icon": "/assets/organizers/social/pinterest.svg",
-              "path": ""
-            }
           ]
+          
         },
         {
           "img_avatar": "/assets/organizers/organizer-avt-2.png",
@@ -1312,21 +1299,8 @@
               "icon": "/assets/organizers/social/pinterest.svg",
               "path": ""
             }
-          ],
-          "social": [
-            {
-              "icon": "/assets/organizers/social/x.svg",
-              "path": ""
-            },
-            {
-              "icon": "/assets/organizers/social/instagram.svg",
-              "path": ""
-            },
-            {
-              "icon": "/assets/organizers/social/pinterest.svg",
-              "path": ""
-            }
           ]
+         
         },
         {
           "img_avatar": "/assets/organizers/organizer-avt-2.png",
@@ -1345,21 +1319,8 @@
               "icon": "/assets/organizers/social/pinterest.svg",
               "path": ""
             }
-          ],
-          "social": [
-            {
-              "icon": "/assets/organizers/social/x.svg",
-              "path": ""
-            },
-            {
-              "icon": "/assets/organizers/social/instagram.svg",
-              "path": ""
-            },
-            {
-              "icon": "/assets/organizers/social/pinterest.svg",
-              "path": ""
-            }
           ]
+         
         }
       ],
       "recommended": false
