@@ -1,6 +1,10 @@
 import { caveat } from '@/app/layout'
 
-import Search from './Search'
+import SelectName from './SelectName'
+import SelectLocation from './SelectLocation'
+import SelectTime from './SelectTime'
+import SelectEvent from './SelectEvent'
+import Link from 'next/link'
 
 const HeroSection = () => {
   return (
@@ -15,7 +19,13 @@ const HeroSection = () => {
         Join a vibrant community where you can explore global happenings and
         share memorable moments with friends and family.
       </p>
-      <Search />
+      <div className='flex flex-wrap items-center gap-4 border border-primary py-2 px-4 rounded-xl'>
+        <SelectName query='name' />
+        <SelectLocation query='location' />
+        <SelectTime />
+        <SelectEvent query='event' />
+      <Link href={"/"}>❌</Link>
+      </div>
     </div>
   )
 }

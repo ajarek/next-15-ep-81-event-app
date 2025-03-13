@@ -1,7 +1,8 @@
 import HeroSection from '@/components/HeroSection'
 import Image from 'next/image'
 
-export default function Home() {
+export default async function Home({searchParams,}: {searchParams: Promise<{event: string, location: string, name: string }>}) {
+  const { event, location, name } = (await searchParams) || {}
   return (
     <div className='min-h-screen flex flex-col justify-start items-center '>
       <div className='relative flex  items-center '>
@@ -10,7 +11,7 @@ export default function Home() {
         <div className='absolute w-full h-full bg-zinc-900 opacity-50'></div>
       </div>
       <HeroSection />
-    
+      <div>{event} {location} {name}</div>
     </div>
   )
 }
