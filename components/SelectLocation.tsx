@@ -40,7 +40,7 @@ const searchParams = useSearchParams()
   return (
     <Select onValueChange={(value) => handleSearch(value)}
     defaultValue={searchParams.get(query)?.toString()}>
-    <SelectTrigger className='w-[180px]  bg-background'>
+    <SelectTrigger id='location' className='w-[180px]  bg-background'>
       <SelectValue placeholder='Event location'  />
     </SelectTrigger>
     <SelectContent >

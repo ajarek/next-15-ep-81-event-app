@@ -36,9 +36,9 @@ const SelectEvent = ({ query }: SearchProps) => {
   
 
   return (
-    <Select onValueChange={(value) => handleSearch(value)}
+    <Select  onValueChange={(value) => handleSearch(value)}
     defaultValue={searchParams.get(query)?.toString()}>
-          <SelectTrigger className='w-[150px] bg-background'>
+          <SelectTrigger id={'event'} className='w-[150px] bg-background'>
             <SelectValue placeholder='Event Type' />
           </SelectTrigger>
           <SelectContent>

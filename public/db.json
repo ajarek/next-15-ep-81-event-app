@@ -1,5 +1,4 @@
-{
-  "events": [
+ [
     {
       "id": "1",
       "type": "music",
@@ -1543,4 +1542,4 @@
       "recommended": true
     }
   ]
-}
+
