@@ -4,7 +4,7 @@ import SelectName from './SelectName'
 import SelectLocation from './SelectLocation'
 import SelectTime from './SelectTime'
 import SelectEvent from './SelectEvent'
-import ResetButton from '@/components/ResetButton'
+import Link from 'next/link'
 
 const HeroSection = () => {
   return (
@@ -24,7 +24,7 @@ const HeroSection = () => {
         <SelectLocation query='location' />
         <SelectTime query='time'/>
         <SelectEvent query='event' />
-      <ResetButton/>
+      <Link href='/reset'>❌</Link>
       </div>
     </div>
   )
