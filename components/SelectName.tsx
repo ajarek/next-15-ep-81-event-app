@@ -38,7 +38,7 @@ const SelectName = ({ query }: SearchProps) => {
           type='text'
           name='name'
           placeholder='Event name or artist'
-          className='bg-background w-fit ' 
+          className='bg-background w-[180px]' 
           onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get(query)?.toString()}
           />
