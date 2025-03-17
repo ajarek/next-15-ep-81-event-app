@@ -1,14 +1,23 @@
-import React from 'react'
+'use client'
+import React, {use} from 'react'
 import dataEvents from '@/public/db.json'
 import Image from 'next/image'
-import { CalendarDays, Dot, MapPin } from 'lucide-react'
+import { CalendarDays, CircleCheckBig, Dot, MapPin, ShoppingBag, Tickets } from 'lucide-react'
 import CountdownTimer from '@/components/CountdownTimer'
 import SelectSeats from '@/components/SelectSeats'
 import SelectQuantity from '@/components/SelectQuantity'
+import { Button } from '@/components/ui/button'
+import {useCartStore} from '@/store/cartStore'
+import { useRouter } from 'next/navigation'
 
-const EventId = async ({searchParams}: {searchParams: Promise<{ id: string, seat_price: string, quantity: string }>}) => {
-
-  const { id, seat_price, quantity   } = await searchParams
+const EventId =  ({
+  searchParams,
+}: {
+  searchParams: Promise<{ id: string; seat_price: string; quantity: string }>
+}) => {
+  const {addItemToCart, items} = useCartStore()
+  const router = useRouter()
+  const { id, seat_price, quantity } = use(searchParams)
   const event = dataEvents.find((event) => event.id === id)
 
   return (
@@ -37,19 +46,101 @@ const EventId = async ({searchParams}: {searchParams: Promise<{ id: string, seat
             {event?.location || ''}
           </p>
         </div>
-        <CountdownTimer date={event?.date || ''} /> 
-        <SelectSeats query='seat_price' array={event?.seats || []}/>
+        <CountdownTimer date={event?.date || ''} />
+        <SelectSeats
+          query='seat_price'
+          array={event?.seats || []}
+        />
         <div className='w-full flex items-center gap-8'>
+          <SelectQuantity query='quantity' />
 
-        <SelectQuantity query='quantity'/>
-        {seat_price?
-        <div className='flex items-center py-2 px-6 rounded-2xl gap-2 bg-primary'>
-          {quantity} x ticket(s) - ${Number(seat_price?.replace(/\D/g, ''))*Number(quantity)}
-          </div>
-          :null
-          
-          }
+          {seat_price ? (
+            <div className='flex items-center py-2 px-6 rounded-2xl gap-2 bg-primary'>
+              <Tickets />
+              {quantity} x ticket(s) - $
+              {Number(seat_price?.replace(/\D/g, '')) * Number(quantity)}
+            </div>
+          ) : null}
         </div>
+        {seat_price &&
+        <Button onClick={() =>{ 
+          if (items.some((i) => i.id === event?.id)) return;
+          addItemToCart({
+          id: event?.id || '',
+          title: event?.title || '',
+          img_sm: event?.img_sm || '',
+          seat_price: seat_price,
+          quantity: quantity,
+          type: event?.type ||'',
+          location: event?.location ||'', 
+          date: event?.date ||'',
+          hour: event?.hour ||''
+          });
+          router.push('/')
+        }
+          }>
+           <ShoppingBag /> Add to cart
+            </Button>
+        }
+      </div>
+
+      <div className='w-full flex flex-col justify-start gap-4 px-8 '>
+        <h2 className='text-2xl'>Description</h2>
+        <p>{event?.description}</p>
+        <h2 className='text-2xl'>Requiremenys for the event</h2>
+        <div className='flex items-center gap-2 '>
+          <CircleCheckBig color={'#ea580c'} /> Lorem ipsum dolor sit amet
+          consectetur adipisicing elit.
+        </div>
+        <div className='flex items-center gap-2 '>
+          <CircleCheckBig color={'#ea580c'} /> Lorem ipsum dolor sit amet
+          consectetur adipisicing elit.
+        </div>
+        <div className='flex items-center gap-2 '>
+          <CircleCheckBig color={'#ea580c'} /> Lorem ipsum dolor sit amet
+          consectetur adipisicing elit.
+        </div>
+        <div className='flex items-center gap-2 '>
+          <CircleCheckBig color={'#ea580c'} /> Lorem ipsum dolor sit amet
+          consectetur adipisicing elit.
+        </div>
+      </div>
+      <div className='w-full flex flex-col justify-start gap-4 pr-8 '>
+        <h2 className='text-2xl'>Organizers</h2>
+        {event?.organizers.map((organizer, index) => (
+          <div
+            key={index}
+            className='flex items-center gap-12 '
+          >
+            <Image
+              src={organizer?.img_avatar || ''}
+              alt={organizer?.name || ''}
+              width={70}
+              height={70}
+              className='rounded-full'
+              priority
+            />
+            <div className='flex flex-col items-center gap-1'>
+            <div>{organizer?.name}</div>
+              <div className='text-primary'>{organizer?.job}</div>
+              <div className='flex items-center gap-2'>
+              {organizer?.social.map((item, index) => (
+                <div
+                  key={index}
+                  className='flex items-center gap-2 '
+                >
+                  <Image
+                    src={item.icon || ''}
+                    alt='social icon'
+                    width={20}
+                    height={20}
+                  />
+                </div>
+              ))}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   )
