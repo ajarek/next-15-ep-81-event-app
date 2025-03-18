@@ -1,5 +1,5 @@
 
-import React, {use} from 'react'
+import React from 'react'
 import { ModeToggle } from './dark-mode'
 import AppLogo from './AppLogo'
 import Logout from './Logout'
@@ -19,7 +19,7 @@ const Navbar = async () => {
     
  
   return (
-    <div className='fixed z-10 bg-transparent w-full h-16 flex  items-center justify-between flex-wrap px-8'>
+    <div className='fixed z-10 bg-transparent max-w-7xl w-full mx-auto h-16 flex  items-center justify-between flex-wrap px-8'>
       <AppLogo />
       <div className='flex gap-4 items-center flex-wrap justify-center  '>
         

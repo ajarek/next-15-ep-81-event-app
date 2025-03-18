@@ -19,9 +19,9 @@ export default async function Home({searchParams,}: {searchParams: Promise<{even
 
   return (
     <div className='min-h-screen flex flex-col justify-start items-center gap-4 max-sm:pt-16'>
-      <div className='relative flex  items-center '>
-        <Image src='/hero/hero-bg1.png' alt='hero' width={720} height={760} className='max-sm:hidden'/>
-        <Image src='/hero/hero-bg2.png' alt='hero' width={720} height={760} className=''/>
+      <div className='relative flex  items-center max-w-7xl w-full mx-auto rounded-sm overflow-hidden'>
+        <Image src='/hero/hero-bg1.png' alt='hero' width={640} height={675} className='max-sm:hidden'/>
+        <Image src='/hero/hero-bg2.png' alt='hero' width={640} height={675} className=''/>
         <div className='absolute w-full h-full bg-zinc-900 opacity-50'></div>
       <HeroSection />
       </div>

@@ -12,7 +12,7 @@ const AppLogo = () => {
     <div className='flex items-center justify-between  '>
       <Link
         href='/'
-        className='bg-secondary w-10 h-10 rounded-full flex justify-center items-center '
+        className='bg-transparent  flex justify-center items-center '
       >
         <TooltipProvider>
           <Tooltip>

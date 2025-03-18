@@ -8,8 +8,8 @@ export type Item = {
   img_sm: string
   date: string
   hour:string
- location: string
-  seat_price: string
+  location: string
+  price: string
   quantity: string
 }
 
@@ -36,7 +36,7 @@ export const useCartStore = create<ItemState>()(
           items: state.items.filter((item) => item.id !== id),
         })),
 
-      total: () => get().items.reduce((acc, item) => acc + Number(item.seat_price.replace(/\D/g, '')), 0),
+      total: () => get().items.reduce((acc, item) => acc + (Number(item.price) * Number(item.quantity)), 0),
 
       removeAll: () => set({ items: [] }),
     }),

@@ -13,6 +13,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -91,6 +92,7 @@ export default function RootLayout({
           <div className={`max-w-7xl w-full mx-auto ${lato.className}`}>
             <Navbar />
             {children}
+            <Footer/>
           </div>
         </ThemeProvider>
       </body>

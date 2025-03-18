@@ -69,7 +69,7 @@ const EventId =  ({
           id: event?.id || '',
           title: event?.title || '',
           img_sm: event?.img_sm || '',
-          seat_price: seat_price,
+          price:seat_price?.replace(/\D/g, ''),
           quantity: quantity,
           type: event?.type ||'',
           location: event?.location ||'', 
