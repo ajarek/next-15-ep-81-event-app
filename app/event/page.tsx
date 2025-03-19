@@ -1,24 +1,33 @@
 'use client'
-import React, {use} from 'react'
+import React, { use } from 'react'
 import dataEvents from '@/public/db.json'
 import Image from 'next/image'
-import { CalendarDays, CircleCheckBig, Dot, MapPin, ShoppingBag, Tickets } from 'lucide-react'
+import {
+  CalendarDays,
+  CircleCheckBig,
+  Dot,
+  MapPin,
+  ShoppingBag,
+  Tickets,
+} from 'lucide-react'
 import CountdownTimer from '@/components/CountdownTimer'
 import SelectSeats from '@/components/SelectSeats'
 import SelectQuantity from '@/components/SelectQuantity'
 import { Button } from '@/components/ui/button'
-import {useCartStore} from '@/store/cartStore'
+import { useCartStore } from '@/store/cartStore'
 import { useRouter } from 'next/navigation'
+import { useToast } from '@/hooks/use-toast'
 
-const EventId =  ({
+const EventId = ({
   searchParams,
 }: {
   searchParams: Promise<{ id: string; seat_price: string; quantity: string }>
 }) => {
-  const {addItemToCart, items} = useCartStore()
+  const { addItemToCart, items } = useCartStore()
   const router = useRouter()
   const { id, seat_price, quantity } = use(searchParams)
   const event = dataEvents.find((event) => event.id === id)
+  const { toast } = useToast()
 
   return (
     <div className='min-h-screen grid grid-cols-2 max-lg:grid-cols-1 gap-4 pt-16 place-items-center p-4'>
@@ -62,26 +71,33 @@ const EventId =  ({
             </div>
           ) : null}
         </div>
-        {seat_price &&
-        <Button onClick={() =>{ 
-          if (items.some((i) => i.id === event?.id)) return;
-          addItemToCart({
-          id: event?.id || '',
-          title: event?.title || '',
-          img_sm: event?.img_sm || '',
-          price:seat_price?.replace(/\D/g, ''),
-          quantity: quantity,
-          type: event?.type ||'',
-          location: event?.location ||'', 
-          date: event?.date ||'',
-          hour: event?.hour ||''
-          });
-          router.push('/')
-        }
-          }>
-           <ShoppingBag /> Add to cart
-            </Button>
-        }
+        {seat_price && (
+          <Button
+            onClick={() => {
+              if (items.some((i) => i.id === event?.id)) {
+                toast({
+                  variant: "destructive",
+                  title: 'The item is already in your cart!',
+                })
+                return
+              }
+              addItemToCart({
+                id: event?.id || '',
+                title: event?.title || '',
+                img_sm: event?.img_sm || '',
+                price: seat_price?.replace(/\D/g, ''),
+                quantity: quantity,
+                type: event?.type || '',
+                location: event?.location || '',
+                date: event?.date || '',
+                hour: event?.hour || '',
+              })
+              router.push('/')
+            }}
+          >
+            <ShoppingBag /> Add to cart
+          </Button>
+        )}
       </div>
 
       <div className='w-full flex flex-col justify-start gap-4 px-8 '>
@@ -121,22 +137,22 @@ const EventId =  ({
               priority
             />
             <div className='flex flex-col items-center gap-1'>
-            <div>{organizer?.name}</div>
+              <div>{organizer?.name}</div>
               <div className='text-primary'>{organizer?.job}</div>
               <div className='flex items-center gap-2'>
-              {organizer?.social.map((item, index) => (
-                <div
-                  key={index}
-                  className='flex items-center gap-2 '
-                >
-                  <Image
-                    src={item.icon || ''}
-                    alt='social icon'
-                    width={20}
-                    height={20}
-                  />
-                </div>
-              ))}
+                {organizer?.social.map((item, index) => (
+                  <div
+                    key={index}
+                    className='flex items-center gap-2 '
+                  >
+                    <Image
+                      src={item.icon || ''}
+                      alt='social icon'
+                      width={20}
+                      height={20}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
