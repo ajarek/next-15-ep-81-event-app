@@ -8,8 +8,8 @@ const About = () => {
         <div>
           <Image src='/hero/hero-bg2.png' alt='about' width={400} height={400} className='rounded-xl'/>
         </div>
-        <div className='max-w-2xl text-center'>
-        <h1 className="text-4xl font-bold mb-6 ">About us</h1>
+        <div className='max-w-2xl flex flex-col justify-center items-center'>
+        <h1 className="text-2xl font-semibold mb-4">About us</h1>
           <p className='mb-4'>
             Welcome to our platform! We are committed to delivering innovative
             solutions and exceptional service to our customers.
@@ -22,6 +22,7 @@ const About = () => {
             Please feel free to contact us with any questions or comments. We
             are always here to help!
           </p>
+          <p></p>
         </div>
       </div>
     </div>

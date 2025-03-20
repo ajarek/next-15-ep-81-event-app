@@ -67,7 +67,7 @@ const Cart = () => {
           </TableBody>
         </Table>
       ) : (
-        <p className='text-center text-2xl'>Your cart is empty</p>
+        <p className='text-center text-2xl text-red-500'>Your cart is empty!</p>
       )}
     </div>
   )
