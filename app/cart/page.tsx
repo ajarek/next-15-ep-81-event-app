@@ -12,10 +12,11 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { Button } from '@/components/ui/button'
-
+import { useRouter } from 'next/navigation'
 
 const Cart = () => {
   const { items, total, removeItemFromCart } = useCartStore()
+  const router = useRouter()
 
   return (
     <div className='min-h-[calc(100vh-4rem)] pt-16 px-8 max-sm:px-4'>
@@ -23,7 +24,7 @@ const Cart = () => {
         <Table>
           <TableCaption className='w-full text-right text-2xl font-bold space-y-4 '>
             <div>Total: ${total().toFixed(2)}</div>
-            <Button className='text-xl'>I order and pay</Button>
+            <Button onClick={() => router.push('/payment')} className='text-xl'>I order and pay</Button>
           </TableCaption>
           <TableHeader>
             <TableRow className=' border-b border-primary'>

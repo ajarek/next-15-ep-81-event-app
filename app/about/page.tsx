@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 const About = () => {
   return (
-    <div className='min-h-[calc(100vh-64px)] flex flex-col items-center justify-center pt-16 px-16 max-md:px-2'>
+    <div className='min-h-[calc(100vh-64px)] flex flex-col items-center justify-center pt-16 px-16 max-sm:px-4'>
      
       <div className='grid grid-cols-2 max-sm:grid-cols-1 place-items-center gap-4'>
         <div>
