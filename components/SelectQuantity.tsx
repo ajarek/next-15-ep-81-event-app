@@ -4,23 +4,21 @@ import React, { useEffect } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { Button } from './ui/button'
 import { Minus, Plus } from 'lucide-react'
+
 interface SearchProps {
   query: string
 }
 
 const SelectQuantity = ({ query }: SearchProps) => {
-
-  const [quantity, setQuantity]= React.useState(1)
+  const [quantity, setQuantity] = React.useState(1)
   const searchParams = useSearchParams()
   const { replace } = useRouter()
   const pathname = usePathname()
 
-
-  
-  useEffect(()=>{
+  useEffect(() => {
     const handleQuantity = (term: string) => {
       const params = new URLSearchParams(searchParams)
-  
+
       if (term) {
         params.set(`${query}`, term)
       } else {
@@ -34,14 +32,27 @@ const SelectQuantity = ({ query }: SearchProps) => {
     }
 
     handleQuantity(quantity.toString())
-  },[ quantity])
-  
+  }, [quantity])
 
   return (
     <div className='flex items-center gap-4'>
-      <Button size={'icon'} className='rounded-full' onClick={()=>setQuantity(quantity+1)}><Plus /></Button>
+      <Button
+        size={'icon'}
+        className='rounded-full'
+        onClick={() => setQuantity(quantity + 1)}
+      >
+        <Plus />
+      </Button>
       <p>{quantity}</p>
-      <Button size={'icon'} className='rounded-full' onClick={()=>quantity<=1?setQuantity(1):setQuantity(quantity-1)}><Minus /></Button>
+      <Button
+        size={'icon'}
+        className='rounded-full'
+        onClick={() =>
+          quantity <= 1 ? setQuantity(1) : setQuantity(quantity - 1)
+        }
+      >
+        <Minus />
+      </Button>
     </div>
   )
 }

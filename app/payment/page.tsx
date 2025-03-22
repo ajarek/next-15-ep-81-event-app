@@ -8,7 +8,7 @@ const Payment = async () => {
   const { user } = (session as Session) || {}
 
   if (!user) {
-    redirect('/register')
+    redirect('/login')
   }
 
   return (

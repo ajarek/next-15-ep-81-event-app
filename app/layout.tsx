@@ -7,14 +7,14 @@ import {
   Poppins,
   Raleway,
   Roboto,
-  Caveat
+  Caveat,
 } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from '@/components/ui/toaster'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -50,11 +50,10 @@ const raleway = Raleway({
 })
 
 export const caveat = Caveat({
-  weight: ['400','500','600', '700'],
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-caveat',
 })
-
 
 const playfairDisplay = Playfair({
   subsets: ['latin'],
@@ -94,7 +93,7 @@ export default function RootLayout({
             <Navbar />
             {children}
             <Toaster />
-            <Footer/>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

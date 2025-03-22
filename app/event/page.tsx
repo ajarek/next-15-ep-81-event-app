@@ -76,7 +76,7 @@ const EventId = ({
             onClick={() => {
               if (items.some((i) => i.id === event?.id)) {
                 toast({
-                  variant: "destructive",
+                  variant: 'destructive',
                   title: 'The item is already in your cart!',
                 })
                 return

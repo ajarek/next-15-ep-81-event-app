@@ -19,7 +19,7 @@ const LogoutBtn = () => {
           <TooltipTrigger>
             {' '}
             <LogOut
-             color='#ea580c'
+              color='#ea580c'
               size={32}
               strokeWidth={1}
               aria-label='Log out'

@@ -28,7 +28,10 @@ export function SignIn() {
       className='p-4  flex flex-col items-center rounded-lg border-2 shadow-xl gap-4 min-w-[300px]'
     >
       <div className='flex justify-center p-2'>
-        <Link href='/' aria-label='Logo'>
+        <Link
+          href='/'
+          aria-label='Logo'
+        >
           <Image
             src='/images/user.png'
             alt='logo'
@@ -66,9 +69,9 @@ export function SignIn() {
       <Link
         href='/register'
         className=''
-        aria-label='Don`&apos;`t have an account? Sign up'
+        aria-label="Don`'`t have an account? Sign up"
       >
-         Don`&apos;`t have an account? <b className='text-[#0E78F9]'>Sign up</b>
+        Don`&apos;`t have an account? <b className='text-[#0E78F9]'>Sign up</b>
       </Link>
     </form>
   )

@@ -16,10 +16,11 @@ const NotFoundPage = () => {
         priority
       />
       <h1 className='text-center text-xl font-semibold'>
-      The specified page could not be found.
+        The specified page could not be found.
       </h1>
       <p className='text-center'>
-      The page you are looking for may have been removed, had its name changed, or is temporarily unavailable.
+        The page you are looking for may have been removed, had its name
+        changed, or is temporarily unavailable.
       </p>
       <div className=''>
         <Button

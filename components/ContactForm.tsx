@@ -7,8 +7,7 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Mail, Check } from 'lucide-react'
 
-const ContactForm = ()=> {
-  
+const ContactForm = () => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState<{ [key: string]: string }>({})
@@ -17,7 +16,6 @@ const ContactForm = ()=> {
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {}
 
-   
     if (!email.trim()) {
       newErrors.email = 'Email is required'
     } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -38,7 +36,6 @@ const ContactForm = ()=> {
       const form = e.currentTarget
       const formData = new FormData(form)
 
-     
       const targetEmail = formData.get('email') as string
       const targetMessage = formData.get('message') as string
 
@@ -52,7 +49,6 @@ const ContactForm = ()=> {
     }
   }
   const handleReset = () => {
-    
     setEmail('')
     setMessage('')
     setErrors({})
@@ -61,21 +57,20 @@ const ContactForm = ()=> {
   return (
     <div className='w-full flex items-center justify-center px-4 '>
       <div className='w-full max-w-md  p-8 rounded-lg shadow-lg'>
-       
         {isSubmitted ? (
           <div
             className={`flex flex-col items-center justify-center space-y-4`}
           >
             <Check className='h-12 w-12 text-green-500' />
             <p className='text-lg text-center font-semibold capitalize'>
-            Thank you for your message!
+              Thank you for your message!
             </p>
             <Button
               onClick={handleReset}
               className='mt-4 hover:bg-primary hover:scale-110 transition-all duration-1000 ease-in-out'
               aria-label='Wyślij kolejną wiadomość'
             >
-             Send another message
+              Send another message
             </Button>
           </div>
         ) : (
@@ -83,7 +78,6 @@ const ContactForm = ()=> {
             onSubmit={handleSubmit}
             className='space-y-4'
           >
-            
             <div className={` space-y-2`}>
               <Label
                 htmlFor='email'
@@ -108,7 +102,7 @@ const ContactForm = ()=> {
                 htmlFor='message'
                 className='flex items-center text-xl'
               >
-               Message
+                Message
               </Label>
               <Textarea
                 id='message'
@@ -127,7 +121,7 @@ const ContactForm = ()=> {
                 type='submit'
                 aria-label='Wyślij'
               >
-              Send 📩
+                Send 📩
               </Button>
             </div>
           </form>

@@ -24,7 +24,12 @@ const Cart = () => {
         <Table>
           <TableCaption className='w-full text-right text-2xl font-bold space-y-4 '>
             <div>Total: ${total().toFixed(2)}</div>
-            <Button onClick={() => router.push('/payment')} className='text-xl'>I order and pay</Button>
+            <Button
+              onClick={() => router.push('/payment')}
+              className='text-xl'
+            >
+              I order and pay
+            </Button>
           </TableCaption>
           <TableHeader>
             <TableRow className=' border-b border-primary'>

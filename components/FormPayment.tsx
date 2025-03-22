@@ -17,9 +17,9 @@ const FormPayment = () => {
       <form
         action={async () => {
           toast({
-            variant: "default",
-            title: 'Paid $'+total(),
-            description:'Thank you for shopping with us!'
+            variant: 'default',
+            title: 'Paid $' + total(),
+            description: 'Thank you for shopping with us!',
           })
           removeAll()
           router.push('/')
