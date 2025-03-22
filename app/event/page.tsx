@@ -30,8 +30,8 @@ const EventId = ({
   const { toast } = useToast()
 
   return (
-    <div className='min-h-screen grid grid-cols-2 max-lg:grid-cols-1 gap-4 pt-16 place-items-center p-4'>
-      <div className='relative w-full h-[250px]'>
+    <div className='min-h-screen grid grid-cols-2 max-lg:grid-cols-1 gap-8 pt-16 place-items-center  px-8 max-sm:px-4'>
+      <div className='relative w-full h-[400px] '>
         <Image
           src={event?.img_lg || ''}
           alt={event?.title || ''}
