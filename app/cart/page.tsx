@@ -27,6 +27,7 @@ const Cart = () => {
             <Button
               onClick={() => router.push('/payment')}
               className='text-xl'
+              aria-label='Order and pay'
             >
               I order and pay
             </Button>
@@ -64,7 +65,7 @@ const Cart = () => {
                   ${(+item.price * +item.quantity).toFixed(2)}
                 </TableCell>
                 <TableCell className='text-center'>
-                  <button onClick={() => removeItemFromCart(item.id)}>
+                  <button onClick={() => removeItemFromCart(item.id)} aria-label='Remove item from cart'>
                     ❌
                   </button>
                 </TableCell>

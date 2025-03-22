@@ -22,8 +22,8 @@ const AppLogo = () => {
                 <Image
                   src={'/header/logo.svg'}
                   alt='logo'
-                  width={60}
-                  height={60}
+                  width={78}
+                  height={30}
                 />
               </div>
             </TooltipTrigger>

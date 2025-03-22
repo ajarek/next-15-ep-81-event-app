@@ -31,12 +31,13 @@ const EventId = ({
 
   return (
     <div className='min-h-screen grid grid-cols-2 max-lg:grid-cols-1 gap-4 pt-16 place-items-center p-4'>
-      <div className='relative'>
+      <div className='relative w-full h-[250px]'>
         <Image
           src={event?.img_lg || ''}
           alt={event?.title || ''}
-          width={500}
-          height={500}
+          fill
+          objectFit='cover'
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className='rounded-lg'
           priority
         />
@@ -94,6 +95,7 @@ const EventId = ({
               })
               router.push('/')
             }}
+            aria-label='Add to cart'
           >
             <ShoppingBag /> Add to cart
           </Button>

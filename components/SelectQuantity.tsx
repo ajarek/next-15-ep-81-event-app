@@ -40,6 +40,7 @@ const SelectQuantity = ({ query }: SearchProps) => {
         size={'icon'}
         className='rounded-full'
         onClick={() => setQuantity(quantity + 1)}
+        aria-label='add'
       >
         <Plus />
       </Button>
@@ -50,6 +51,7 @@ const SelectQuantity = ({ query }: SearchProps) => {
         onClick={() =>
           quantity <= 1 ? setQuantity(1) : setQuantity(quantity - 1)
         }
+        aria-label='remove'
       >
         <Minus />
       </Button>
